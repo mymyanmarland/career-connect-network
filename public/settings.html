@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚙️ Settings — Career Connect Network</title>
+<script>try{var t=localStorage.getItem("ccn_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← ပြန်သွားမယ် / Back to board</a>
+  <h2>⚙️ Settings</h2>
+
+  <div class="card">
+    <h3>📡 Job sources <span class="badge-ok ok">✓ အလိုအလျောက်</span></h3>
+    <p>Signup / API key လုံးဝမလိုပါ —</p>
+    <p>🇸🇬 <b>JobStreet</b> + <b>MyCareersFuture</b> (Singapore) · 🇹🇭 <b>JobsDB</b> + <b>JobThai</b> (Thailand) · 🇲🇾 <b>JobStreet</b> + <b>Hiredly</b> (Malaysia) · <b>LinkedIn</b> (၃ နိုင်ငံလုံး) — ၆ နာရီတစ်ခါ အလိုအလျောက် ဆွဲပါတယ်။</p>
+    <div class="status-line" id="srcInfo"></div>
+  </div>
+
+  <div class="card">
+    <h3>🤖 AI Gateway <span id="bGw" class="badge-ok no">မရှိသေး</span></h3>
+    <p>Post စာသားတွေ (English + မြန်မာ summary) လှလှရေးဖို့ သုံးပါတယ်။ Key ကို encrypt လုပ်ပြီး သိမ်းပါတယ်။ <b>မထည့်လည်း</b> post တွေက ပုံမှန်အတိုင်း တင်ပေးနေမှာပါ (template စာသား)။</p>
+    <label>Gateway API key</label>
+    <input type="password" id="gateway_key" placeholder="••••••••">
+    <label>Model</label>
+    <input type="text" id="gateway_model" placeholder="claude-sonnet-5">
+  </div>
+
+  <div class="btnrow">
+    <button class="primary" id="saveBtn">💾 သိမ်းမယ် / Save</button>
+  </div>
+
+  <div class="card">
+    <h3>🧪 စမ်းသပ်ရန် / Test</h3>
+    <div class="btnrow">
+      <button class="ghost-btn" id="fetchBtn">📥 Fetch jobs now</button>
+      <button class="ghost-btn" id="pubBtn">📮 Publish 5 jobs now</button>
+    </div>
+    <div class="status-line" id="testOut"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const badge = (id, ok) => { const b = $(id); b.className = "badge-ok " + (ok ? "ok" : "no"); b.textContent = ok ? "✓ ရှိ" : "မရှိသေး"; };
+
+async function loadStatus() {
+  const r = await fetch("/api/settings/status").then((r) => r.json());
+  badge("bGw", r.gateway);
+  if (r.gateway_model) $("gateway_model").value = r.gateway_model;
+  const fmt = (s) => s ? new Date(s).toLocaleString() : "—";
+  $("srcInfo").textContent = `နောက်ဆုံး fetch — JobStreet/JobsDB: ${fmt(r.last_seek_fetch)} · MCF: ${fmt(r.last_mcf_fetch)} · JobThai: ${fmt(r.last_jobthai_fetch)} · Hiredly: ${fmt(r.last_hiredly_fetch)} · LinkedIn: ${fmt(r.last_linkedin_fetch)}`;
+}
+
+$("saveBtn").addEventListener("click", async () => {
+  const body = {
+    gateway_key: $("gateway_key").value.trim(),
+    gateway_model: $("gateway_model").value.trim(),
+  };
+  if (!body.gateway_key) delete body.gateway_key;
+  if (!body.gateway_model) delete body.gateway_model;
+  const r = await fetch("/api/settings/keys", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then((r) => r.json());
+  if (r.ok) { $("gateway_key").value = ""; loadStatus(); alert("✓ သိမ်းပြီးပါပြီ"); }
+  else alert("✗ မအောင်မြင်ပါ");
+});
+
+$("fetchBtn").addEventListener("click", async () => {
+  $("testOut").textContent = "⏳ fetching… (စက္ကန့်အနည်းငယ်ကြာနိုင်ပါတယ်)";
+  const r = await fetch("/api/admin/fetch", { method: "POST" }).then((r) => r.json());
+  $("testOut").textContent = JSON.stringify(r, null, 2);
+  loadStatus();
+});
+$("pubBtn").addEventListener("click", async () => {
+  $("testOut").textContent = "⏳ publishing…";
+  const r = await fetch("/api/admin/publish", { method: "POST" }).then((r) => r.json());
+  $("testOut").textContent = JSON.stringify(r, null, 2);
+});
+
+loadStatus();
+</script>
+</body>
+</html>

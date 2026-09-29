@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a3d91"/>
+      <stop offset=".55" stop-color="#0a66c2"/>
+      <stop offset="1" stop-color="#2f80ed"/>
+    </linearGradient>
+    <linearGradient id="goldtxt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd76a"/>
+      <stop offset="1" stop-color="#ff9d5c"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="rgba(255,255,255,.30)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,.07)"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.6" fill="rgba(255,255,255,.14)"/>
+    </pattern>
+    <style>
+      .blob { transform-box: fill-box; transform-origin: center; animation: blob 9s ease-in-out infinite; }
+      .b2 { animation-delay: -3s; } .b3 { animation-delay: -6s; }
+      @keyframes blob { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-22px) scale(1.08); } }
+      .dash { animation: dashm 1.3s linear infinite; }
+      @keyframes dashm { to { stroke-dashoffset: -16; } }
+      .fl { animation: floaty 5.5s ease-in-out infinite; }
+      .fl2 { animation: floaty 6.8s -2s ease-in-out infinite; }
+      .fl3 { animation: floaty 7.6s -4s ease-in-out infinite; }
+      @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+      .pulse { transform-box: fill-box; transform-origin: center; animation: pls 2.8s ease-in-out infinite; }
+      @keyframes pls { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: .45; } }
+      .shine { animation: shn 5s ease-in-out infinite; }
+      @keyframes shn { 0%,55% { transform: translateX(0) skewX(-18deg); } 100% { transform: translateX(120px) skewX(-18deg); } }
+      .fadeup { animation: fup .9s cubic-bezier(.2,.7,.3,1) both; }
+      .d1 { animation-delay: .15s; } .d2 { animation-delay: .3s; } .d3 { animation-delay: .45s; }
+      @keyframes fup { from { opacity: 0; transform: translateY(18px); } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="380" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="380" rx="24" fill="url(#dots)"/>
+  <circle class="blob" cx="1050" cy="70" r="90" fill="rgba(255,255,255,.08)"/>
+  <circle class="blob b2" cx="120" cy="310" r="60" fill="rgba(255,255,255,.07)"/>
+  <circle class="blob b3" cx="880" cy="300" r="34" fill="rgba(255,215,106,.16)"/>
+
+  <!-- logo mark -->
+  <g class="fadeup" transform="translate(78,96)">
+    <rect x="0" y="0" width="104" height="104" rx="26" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.45)" stroke-width="2"/>
+    <rect x="32" y="28" width="40" height="12" rx="5" fill="none" stroke="#fff" stroke-width="6"/>
+    <rect x="22" y="40" width="60" height="42" rx="9" fill="#fff"/>
+    <rect x="22" y="60" width="60" height="6" fill="#0a66c2" opacity=".8"/>
+    <rect x="47" y="57" width="10" height="12" rx="2.5" fill="#0a66c2"/>
+    <g clip-path="url(#lc)"><rect class="shine" x="-30" y="0" width="24" height="104" fill="#fff" opacity=".35"/></g>
+    <circle class="pulse" cx="88" cy="22" r="6" fill="#ffd76a"/>
+    <clipPath id="lc"><rect x="0" y="0" width="104" height="104" rx="26"/></clipPath>
+  </g>
+
+  <!-- title -->
+  <text class="fadeup d1" x="215" y="150" font-size="62" font-weight="800" fill="#ffffff" letter-spacing="1">Career Connect Network</text>
+  <text class="fadeup d2" x="217" y="192" font-size="26" font-weight="600" fill="url(#goldtxt)" letter-spacing="3">SINGAPORE • THAILAND • MALAYSIA</text>
+  <text class="fadeup d3" x="217" y="228" font-size="20" fill="rgba(255,255,255,.85)">Fresh engineering jobs, auto-published every 30 minutes — zero duplicates, ever.</text>
+
+  <!-- journey path -->
+  <path id="jp" d="M700 300 C 800 250, 830 270, 900 210 S 1020 170, 1140 90" fill="none"
+        stroke="rgba(255,255,255,.55)" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 13" class="dash"/>
+  <circle r="8" fill="#ffd76a" stroke="#fff" stroke-width="2.5">
+    <animateMotion dur="8s" repeatCount="indefinite"><mpath href="#jp"/></animateMotion>
+  </circle>
+
+  <!-- floating chips -->
+  <g class="fl" transform="translate(985,180)">
+    <rect x="-34" y="-34" width="68" height="68" rx="19" fill="url(#chip)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+    <rect x="-14" y="-16" width="28" height="6" rx="2.5" fill="none" stroke="#fff" stroke-width="3"/>
+    <rect x="-18" y="-10" width="36" height="24" rx="5" fill="#fff" opacity=".95"/>
+  </g>
+  <g class="fl2" transform="translate(680,120)">
+    <rect x="-30" y="-30" width="60" height="60" rx="17" fill="url(#chip)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+    <path d="M0 -14 c-8 0 -13 6 -13 13 0 10 13 23 13 23 s13 -13 13 -23 c0 -7 -5 -13 -13 -13 z" fill="#fff" opacity=".95"/>
+    <circle cx="0" cy="-1" r="5" fill="#0a66c2"/>
+  </g>
+  <g class="fl3" transform="translate(760,250)">
+    <rect x="-28" y="-28" width="56" height="56" rx="16" fill="url(#chip)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+    <rect x="-13" y="-18" width="26" height="34" rx="4" fill="#fff" opacity=".95"/>
+    <rect x="-8" y="-11" width="16" height="3.5" rx="1.7" fill="#0a66c2" opacity=".7"/>
+    <rect x="-8" y="-4" width="16" height="3.5" rx="1.7" fill="#0a66c2" opacity=".45"/>
+    <rect x="-8" y="3" width="10" height="3.5" rx="1.7" fill="#0a66c2" opacity=".45"/>
+  </g>
+
+  <!-- live badge -->
+  <g class="fadeup d3" transform="translate(1010,300)">
+    <rect x="0" y="0" width="150" height="44" rx="22" fill="rgba(0,0,0,.28)" stroke="rgba(255,255,255,.4)"/>
+    <circle cx="26" cy="22" r="8" fill="#34d399"><animate attributeName="opacity" values="1;.35;1" dur="1.6s" repeatCount="indefinite"/></circle>
+    <text x="44" y="29" font-size="19" font-weight="700" fill="#fff">LIVE 24/7</text>
+  </g>
+</svg>

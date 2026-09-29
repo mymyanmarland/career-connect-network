@@ -1,0 +1,1 @@
+{"dependencies":{"express":"^4.21.2","node-cron":"^3.0.3"},"description":"💼 Career Connect Network — auto job board for SG/TH/MY engineering jobs (bilingual my/en)","main":"server.js","name":"job-board","scripts":{"start":"node server.js"},"version":"1.0.0"}

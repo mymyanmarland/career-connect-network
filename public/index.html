@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Connect Network — Jobs in Singapore, Thailand & Malaysia</title>
+<script>try{var t=localStorage.getItem("ccn_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <div class="logo-mark">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3b8bf0"/>
+              <stop offset="1" stop-color="#0a3d91"/>
+            </linearGradient>
+            <clipPath id="logoClip"><rect x="3" y="3" width="42" height="42" rx="12"/></clipPath>
+          </defs>
+          <rect x="3" y="3" width="42" height="42" rx="12" fill="url(#logoGrad)"/>
+          <rect x="19.5" y="13.5" width="9" height="5.5" rx="2.4" fill="none" stroke="#fff" stroke-width="2.6"/>
+          <rect x="12" y="18" width="24" height="16.5" rx="3.5" fill="#fff"/>
+          <rect x="12" y="24.5" width="24" height="2.4" fill="url(#logoGrad)" opacity=".85"/>
+          <rect x="21.8" y="23.2" width="4.4" height="5" rx="1.2" fill="url(#logoGrad)"/>
+          <g clip-path="url(#logoClip)">
+            <rect class="logo-shine" x="-16" y="0" width="11" height="48" fill="#fff" opacity=".35"/>
+          </g>
+          <circle class="logo-spark" cx="35.5" cy="12.5" r="2.6" fill="#ffd76a"/>
+          <circle class="logo-spark s2" cx="39" cy="18" r="1.6" fill="#fff" opacity=".9"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-name">Career Connect Network</div>
+        <div class="logo-tag">SG • TH • MY Jobs</div>
+      </div>
+    </a>
+    <div class="nav-btns">
+      <button id="themeBtn" class="btn-outline theme-btn" title="Light / Dark">🌙</button>
+      <button id="langBtn" class="btn-outline">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-deco" aria-hidden="true">
+      <svg viewBox="0 0 440 320" width="100%" height="100%">
+        <defs>
+          <linearGradient id="chipGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="rgba(255,255,255,.32)"/>
+            <stop offset="1" stop-color="rgba(255,255,255,.08)"/>
+          </linearGradient>
+        </defs>
+        <circle class="blob b1" cx="350" cy="70" r="72" fill="rgba(255,255,255,.09)"/>
+        <circle class="blob b2" cx="80" cy="250" r="48" fill="rgba(255,255,255,.07)"/>
+        <circle class="blob b3" cx="230" cy="292" r="26" fill="rgba(255,215,106,.14)"/>
+        <path id="journeyPath" d="M10 280 C 110 220, 150 250, 215 175 S 330 130, 425 55"
+              fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.5"
+              stroke-linecap="round" stroke-dasharray="2 12" class="dash-anim"/>
+        <circle r="6.5" fill="#ffd76a" stroke="#fff" stroke-width="2">
+          <animateMotion dur="10s" repeatCount="indefinite">
+            <mpath href="#journeyPath"/>
+          </animateMotion>
+        </circle>
+        <g class="float f1">
+          <rect x="288" y="120" width="64" height="64" rx="18" fill="url(#chipGrad)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+          <rect x="314" y="137" width="12" height="6" rx="2.5" fill="none" stroke="#fff" stroke-width="3"/>
+          <rect x="306" y="142" width="28" height="20" rx="4" fill="#fff" opacity=".95"/>
+          <rect x="306" y="150" width="28" height="3" fill="#0a66c2" opacity=".7"/>
+        </g>
+        <g class="float f2">
+          <rect x="120" y="60" width="56" height="56" rx="16" fill="url(#chipGrad)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+          <path d="M148 74 c-8 0 -13 6 -13 13 0 10 13 23 13 23 s13 -13 13 -23 c0 -7 -5 -13 -13 -13 z" fill="#fff" opacity=".95"/>
+          <circle cx="148" cy="87" r="5" fill="#0a66c2" opacity=".8"/>
+        </g>
+        <g class="float f3">
+          <rect x="200" y="200" width="52" height="52" rx="15" fill="url(#chipGrad)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+          <rect x="214" y="211" width="24" height="30" rx="3" fill="#fff" opacity=".95"/>
+          <rect x="219" y="218" width="14" height="3" rx="1.5" fill="#0a66c2" opacity=".7"/>
+          <rect x="219" y="224" width="14" height="3" rx="1.5" fill="#0a66c2" opacity=".45"/>
+          <rect x="219" y="230" width="9" height="3" rx="1.5" fill="#0a66c2" opacity=".45"/>
+        </g>
+      </svg>
+    </div>
+    <h1 id="heroTitle"></h1>
+    <p id="heroSub"></p>
+    <div class="search-card">
+      <input id="q" type="search" autocomplete="off">
+      <select id="qCountry"></select>
+      <button id="searchBtn" class="btn-primary"></button>
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+  <button class="btn-outline filter-toggle" id="filterToggle"></button>
+  <aside class="sidebar" id="sidebar">
+    <div class="side-head">
+      <h3 id="filtersTitle"></h3>
+      <button class="clear-btn" id="clearBtn"></button>
+    </div>
+    <div class="fgroup"><h4 id="locTitle"></h4><div id="countryRadios"></div></div>
+    <div class="fgroup"><h4 id="catTitle"></h4><div id="catRadios"></div></div>
+    <div class="fgroup"><h4 id="srcTitle"></h4><div id="srcRadios"></div></div>
+  </aside>
+
+  <main>
+    <div class="result-bar">
+      <div class="result-count" id="resultCount"></div>
+      <div class="per-page" id="perPage"></div>
+    </div>
+    <div id="feed"></div>
+    <nav class="pagination" id="pagination" aria-label="pagination"></nav>
+  </main>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">💼 Career Connect Network</div>
+    <span id="disclaimer"></span><br>
+    <span class="tags">#CareerConnectNetwork #Jobs #SingaporeJobs #ThailandJobs #MalaysiaJobs</span>
+  </div>
+</footer>
+
+<script>
+"use strict";
+const CATS = {
+  "":        { my: "အားလုံး", en: "All", emoji: "🗂️" },
+  mep:       { my: "MEP Engineering", en: "MEP Engineering", emoji: "🔧" },
+  electronic:{ my: "Electronic Engineering", en: "Electronic Engineering", emoji: "⚡" },
+  cad:       { my: "AutoCAD / Revit", en: "AutoCAD / Revit", emoji: "📐" },
+  telecom:   { my: "Telecom", en: "Telecom", emoji: "📡" },
+  data:      { my: "Data Analysis", en: "Data Analysis", emoji: "📊" },
+  python:    { my: "Python Programming", en: "Python Programming", emoji: "🐍" },
+  pcb:       { my: "PCB / Circuit Design", en: "PCB / Circuit Design", emoji: "🔌" },
+  mobile:    { my: "Mobile Technology", en: "Mobile Technology", emoji: "📱" },
+};
+const COUNTRIES = {
+  "":   { flag: "🌏", my: "အားလုံး", en: "All locations" },
+  SG: { flag: "🇸🇬", my: "စင်ကာပူ", en: "Singapore" },
+  TH: { flag: "🇹🇭", my: "ထိုင်း", en: "Thailand" },
+  MY: { flag: "🇲🇾", my: "မလေးရှား", en: "Malaysia" },
+};
+const SOURCES = {
+  "":        { my: "အားလုံး", en: "All" },
+  mcf:       { my: "MyCareersFuture", en: "MyCareersFuture" },
+  jobstreet: { my: "JobStreet", en: "JobStreet" },
+  jobsdb:    { my: "JobsDB", en: "JobsDB" },
+  jobthai:   { my: "JobThai", en: "JobThai" },
+  hiredly:   { my: "Hiredly", en: "Hiredly" },
+  linkedin:  { my: "LinkedIn", en: "LinkedIn" },
+};
+const STR = {
+  heroTitle:  { my: "စိတ်ကြိုက်အလုပ်ကို ရှာဖွေလိုက်ပါ", en: "Find your next job" },
+  heroSub:    { my: "စင်ကာပူ • ထိုင်း • မလေးရှား — အလုပ်အကိုင် ထောင်ချီမှ မိနစ် ၃၀ တစ်ခါ အလိုအလျောက် update", en: "Singapore • Thailand • Malaysia — thousands of jobs, auto-updated every 30 minutes" },
+  searchPh:   { my: "🔍 အလုပ်အမည်၊ keyword သို့မဟုတ် ကုမ္ပဏီ…", en: "🔍 Job title, keyword or company…" },
+  searchBtn:  { my: "ရှာဖွေမယ်", en: "Search" },
+  filters:    { my: "စစ်ထုတ်ရန်", en: "Filters" },
+  showFilter: { my: "🔎 စစ်ထုတ်ရန် ▾", en: "🔎 Filters ▾" },
+  clearAll:   { my: "ရှင်းလင်းမယ်", en: "Clear all" },
+  location:   { my: "တည်နေရာ", en: "Location" },
+  category:   { my: "အမျိုးအစား", en: "Category" },
+  source:     { my: "Source", en: "Source" },
+  perPage:    { my: "တစ်မျက်နှာလျှင် ၃ post", en: "3 posts per page" },
+  latestJobs: { my: "နောက်ဆုံးရ အလုပ်အကိုင်များ", en: "Latest Jobs" },
+  newBadge:   { my: "အသစ်", en: "NEW" },
+  postedOn:   { my: "တင်သည့်ရက်", en: "Posted" },
+  apply:      { my: "လျှောက်ထားရန်", en: "Apply now" },
+  empty:      { my: "ရှာဖွေမှုနဲ့ ကိုက်ညီတဲ့ post မရှိပါ — filter ပြောင်းကြည့်ပါ 🔍", en: "No posts match your search — try different filters 🔍" },
+  disclaimer: { my: "လျှောက်ထားမီ မူရင်းကြော်ငြာရှိ ရက်စွဲ၊ အရည်အချင်းနှင့် အလုပ်ရှင်အချက်အလက်ကို ပြန်စစ်ပါ။", en: "Before applying, verify the date, requirements and employer details in the original ad." },
+};
+const PAGE_SIZE = 3;
+let lang = localStorage.getItem("ccn_lang") || "my";
+let page = 1, total = 0;
+let fCountry = "", fCat = "", fSrc = "", fQ = "";
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const T = (o) => (lang === "en" ? o.en : o.my);
+
+function syncThemeIcon() {
+  $("themeBtn").textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙";
+}
+function toggleTheme() {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("ccn_theme", next); } catch {}
+  syncThemeIcon();
+}
+
+function timeAgo(iso) {
+  const mins = Math.max(1, Math.round((Date.now() - new Date(iso + "Z").getTime()) / 60000));
+  if (lang === "en") return mins < 60 ? `${mins}m ago` : mins < 1440 ? `${Math.round(mins/60)}h ago` : `${Math.round(mins/1440)}d ago`;
+  return mins < 60 ? `${mins} မိနစ်က` : mins < 1440 ? `${Math.round(mins/60)} နာရီက` : `${Math.round(mins/1440)} ရက်က`;
+}
+function isNew(iso) {
+  if (!iso) return false;
+  const t = Date.parse(iso.length <= 10 ? iso + "T00:00:00Z" : iso);
+  return Number.isFinite(t) && (Date.now() - t) < 2 * 24 * 60 * 60 * 1000;
+}
+
+function jobBlock(j) {
+  const c = COUNTRIES[j.country] || COUNTRIES[""];
+  const cat = CATS[j.category] || { my: j.category, en: j.category, emoji: "💼" };
+  const src = SOURCES[j.source] || { my: j.source, en: j.source };
+  const initial = esc((j.company || j.title || "?").trim().charAt(0).toUpperCase());
+  return `
+  <div class="job">
+    <div class="job-top">
+      <div class="avatar">${initial}</div>
+      <div class="job-main">
+        <a class="job-title" href="${esc(j.apply_url)}" target="_blank" rel="noopener">${esc(j.title)}</a>
+        <div class="job-company">🏢 ${esc(j.company || "—")}</div>
+        <div class="job-loc">📍 ${c.flag} ${T(c)}${j.location ? " · " + esc(j.location) : ""}${j.job_type ? " · " + esc(j.job_type) : ""}</div>
+      </div>
+      ${isNew(j.posted_at) ? `<span class="pill new">${T(STR.newBadge)}</span>` : ""}
+    </div>
+    <div class="pills">
+      <span class="pill country">${c.flag} ${T(c)}</span>
+      <span class="pill cat">${cat.emoji} ${T(cat)}</span>
+      <span class="pill src">📰 ${T(src)}</span>
+    </div>
+    ${j.salary ? `<div class="salary">💰 ${esc(j.salary)}</div>` : ""}
+    ${j.en_summary ? `<div class="summary">🇬🇧 ${esc(j.en_summary)}</div>` : ""}
+    ${j.my_summary ? `<div class="summary my">🇲🇲 ${esc(j.my_summary)}</div>` : ""}
+    ${j.apply_email ? `<div class="job-email">📧 ${esc(j.apply_email)}</div>` : ""}
+    <div class="job-foot">
+      <a class="btn-apply" href="${esc(j.apply_url)}" target="_blank" rel="noopener">${T(STR.apply)} →</a>
+      ${j.posted_at ? `<span class="posted-date">🗓 ${T(STR.postedOn)}: ${esc(j.posted_at)}</span>` : ""}
+    </div>
+  </div>`;
+}
+
+function postCard(p) {
+  const flags = [...new Set(p.jobs.map((j) => (COUNTRIES[j.country] || {}).flag).filter(Boolean))].join(" ");
+  return `
+  <article class="post">
+    <div class="post-head">
+      <div>
+        <div class="post-brand">CAREER CONNECT NETWORK</div>
+        <div class="post-flags">${flags}</div>
+      </div>
+      <div class="post-time">🕒 ${timeAgo(p.created_at)}</div>
+    </div>
+    <div class="post-body">
+      <div class="post-sub">🌏 ${T(STR.latestJobs)} · ${p.jobs.length} jobs</div>
+      ${p.jobs.map(jobBlock).join("")}
+    </div>
+  </article>`;
+}
+
+function skeleton() {
+  return `<div class="skel-card">
+    <div class="skel" style="height:20px;width:55%"></div>
+    <div class="skel" style="height:70px"></div>
+    <div class="skel" style="height:70px"></div>
+    <div class="skel" style="height:42px;width:35%"></div>
+  </div>`;
+}
+
+function renderPagination() {
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if (page > pages) page = pages;
+  const el = $("pagination");
+  if (pages <= 1) { el.innerHTML = ""; return; }
+  let nums = [];
+  const push = (n) => { if (!nums.includes(n)) nums.push(n); };
+  push(1); push(pages);
+  for (let n = page - 2; n <= page + 2; n++) if (n > 1 && n < pages) push(n);
+  nums.sort((a, b) => a - b);
+  let html = `<button class="page-btn" data-p="${page - 1}" ${page <= 1 ? "disabled" : ""}>‹</button>`;
+  let prevN = 0;
+  for (const n of nums) {
+    if (n - prevN > 1) html += `<span class="page-dots">…</span>`;
+    html += `<button class="page-btn${n === page ? " active" : ""}" data-p="${n}">${n}</button>`;
+    prevN = n;
+  }
+  html += `<button class="page-btn" data-p="${page + 1}" ${page >= pages ? "disabled" : ""}>›</button>`;
+  el.innerHTML = html;
+  el.querySelectorAll(".page-btn[data-p]").forEach((b) =>
+    b.addEventListener("click", () => {
+      const p = Number(b.dataset.p);
+      if (p >= 1 && p <= pages && p !== page) {
+        page = p; loadFeed();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }));
+}
+
+async function loadFeed() {
+  $("feed").innerHTML = skeleton() + skeleton();
+  const params = new URLSearchParams({
+    limit: PAGE_SIZE, offset: (page - 1) * PAGE_SIZE,
+    country: fCountry, category: fCat, source: fSrc, q: fQ,
+  });
+  try {
+    const r = await fetch("/api/posts?" + params).then((r) => r.json());
+    const posts = r.posts || [];
+    total = r.total || 0;
+    $("resultCount").innerHTML = lang === "en"
+      ? `<b>${total}</b> posts found` : `Post <b>${total}</b> ခု တွေ့ရှိပါတယ်`;
+    if (posts.length === 0) {
+      $("feed").innerHTML = `<div class="empty"><span class="big">🔍</span>${T(STR.empty)}</div>`;
+    } else {
+      $("feed").innerHTML = posts.map(postCard).join("");
+    }
+    renderPagination();
+  } catch {
+    $("feed").innerHTML = `<div class="empty"><span class="big">⚠️</span>Connection error</div>`;
+    $("pagination").innerHTML = "";
+  }
+}
+
+function buildRadios(el, entries, name, current, iconKey) {
+  el.innerHTML = entries.map(([k, v]) => `
+    <label class="radio-row">
+      <input type="radio" name="${name}" value="${k}" ${k === current ? "checked" : ""}>
+      <span class="lbl">${v[iconKey] || ""} ${T(v)}</span>
+    </label>`).join("");
+  el.querySelectorAll("input").forEach((inp) =>
+    inp.addEventListener("change", () => {
+      if (name === "fc") fCountry = inp.value;
+      if (name === "fg") fCat = inp.value;
+      if (name === "fs") fSrc = inp.value;
+      page = 1; loadFeed();
+    }));
+}
+
+function buildFilters() {
+  buildRadios($("countryRadios"), Object.entries(COUNTRIES), "fc", fCountry, "flag");
+  buildRadios($("catRadios"), Object.entries(CATS), "fg", fCat, "emoji");
+  buildRadios($("srcRadios"), Object.entries(SOURCES), "fs", fSrc, null);
+  $("qCountry").innerHTML = Object.entries(COUNTRIES).map(([k, v]) =>
+    `<option value="${k}">${v.flag} ${T(v)}</option>`).join("");
+  $("qCountry").value = fCountry;
+}
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  $("langBtn").textContent = lang === "en" ? "မြန်မာ" : "EN";
+  $("heroTitle").textContent = T(STR.heroTitle);
+  $("heroSub").textContent = T(STR.heroSub);
+  $("q").placeholder = T(STR.searchPh);
+  $("searchBtn").textContent = T(STR.searchBtn);
+  $("filtersTitle").textContent = T(STR.filters);
+  $("filterToggle").textContent = T(STR.showFilter);
+  $("clearBtn").textContent = T(STR.clearAll);
+  $("locTitle").textContent = T(STR.location);
+  $("catTitle").textContent = T(STR.category);
+  $("srcTitle").textContent = T(STR.source);
+  $("perPage").textContent = T(STR.perPage);
+  $("disclaimer").textContent = T(STR.disclaimer);
+  localStorage.setItem("ccn_lang", lang);
+  buildFilters(); loadFeed();
+}
+
+function clearFilters() {
+  fCountry = ""; fCat = ""; fSrc = ""; fQ = ""; page = 1;
+  $("q").value = ""; buildFilters(); loadFeed();
+}
+
+$("langBtn").addEventListener("click", () => { lang = lang === "en" ? "my" : "en"; applyLang(); });
+$("themeBtn").addEventListener("click", toggleTheme);
+$("searchBtn").addEventListener("click", () => {
+  fQ = $("q").value.trim(); fCountry = $("qCountry").value; page = 1;
+  buildFilters(); loadFeed();
+});
+$("q").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") { fQ = $("q").value.trim(); fCountry = $("qCountry").value; page = 1; buildFilters(); loadFeed(); }
+});
+$("qCountry").addEventListener("change", (e) => { fCountry = e.target.value; page = 1; buildFilters(); loadFeed(); });
+$("clearBtn").addEventListener("click", clearFilters);
+$("filterToggle").addEventListener("click", () => $("sidebar").classList.toggle("open"));
+
+applyLang();
+syncThemeIcon();
+try {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches)
+    document.querySelectorAll(".hero-deco svg").forEach((s) => s.pauseAnimations());
+} catch {}
+</script>
+</body>
+</html>
